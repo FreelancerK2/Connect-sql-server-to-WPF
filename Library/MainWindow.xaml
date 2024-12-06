@@ -1,0 +1,60 @@
+﻿<Window x:Class="Library.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="600">
+    <Grid>
+        <!-- Define 2 columns -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Define 3 rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Add Buttons -->
+        <Button Grid.Column="0" Content="Connect" HorizontalAlignment="Center" VerticalAlignment="Center" Width="266" Click="ConnectButton_Click" />
+        <Button Grid.Column="1" Content="Disconnect" HorizontalAlignment="Center" VerticalAlignment="Center" Width="252" Click="DisconnectButton_Click" />
+
+        <!-- Add Status Text -->
+        <TextBlock Name="StatusTextBlock" Grid.Row="1" Grid.Column="0" Text="Status: Not Connected" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" />
+
+        <!-- Add Database Connection String -->
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Server=DESKTOP-OP5TL27\SQLEXPRESS;Database = BookShop; integrated security = true"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" TextWrapping="Wrap" />
+
+        <!-- Add Load Data Button -->
+
+        <ListBox x:Name="LData" Grid.Row="2" Grid.Column="1"/>
+        <!-- Add Create Table Button -->
+        <Button Grid.Row="2" Grid.Column="0" Content="Create Table" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="10,186,0,0" Click="btnCreateTable_Click" />
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="1">First Name</Label>
+            <Label Grid.Row="2">Last Name</Label>
+            <TextBox x:Name="FirstName" Grid.Row="1" Grid.Column="1"/>
+            <TextBox x:Name="LastName" Grid.Row="2" Grid.Column="1"/>
+            <Button Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Top" Content="Insert" Click="Insert_Click"/>
+            <Button Grid.Row="3" Grid.Column="1" Content="Load Data" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Click="LoadDataButton_Click" Margin="83,133,0,0" Height="21"/>
+        </Grid>
+
+    </Grid>
+</Window>
+ 
